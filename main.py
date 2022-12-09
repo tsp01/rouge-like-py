@@ -12,7 +12,7 @@ class Game:
         pygame.display.set_caption('Zelda')
         self.clock = pygame.time.Clock()
 
-        self.level_number = 1
+        self.level_number = 0
 
         #death screen setup
         self.font = pygame.font.Font(UI_FONT, UI_FONT_SIZE)
@@ -64,12 +64,15 @@ class Game:
                     pygame.display.update()
                     self.clock.tick(FPS)
 
+            # Increase level and show level win screen
             elif self.level.won_level:
                 self.level_number += 1
 
 
             if self.level_number > TOTAL_LEVEL_NUMBER:
                 break
+
+        #create game win screen
 
 if __name__ == "__main__":
     game = Game()
