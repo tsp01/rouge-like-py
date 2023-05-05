@@ -24,6 +24,8 @@ class Game:
         #Level victory setup
 
         #Game victory setup
+        self.victory_text_surf = self.font.render("Congratulations you won the game", False, TEXT_COLOR)
+        self.victory_text_rect = self.victory_text_surf.get_rect(center = (WIDTH/2, HEIGHT/2))
 
     def run(self):
         
@@ -70,7 +72,13 @@ class Game:
 
 
             if self.level_number > TOTAL_LEVEL_NUMBER:
-                break
+                while True:
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                            pygame.quit()
+                            sys.exit()
+                    self.screen.fill("Green")
+                    self.screen.blit(self.victory_text_surf, self.victory_text_rect)
 
         #create game win screen
 
