@@ -70,7 +70,7 @@ class Game:
             elif self.level.won_level:
                 self.level_number += 1
 
-
+            #dont question it
             if self.level_number > TOTAL_LEVEL_NUMBER:
                 while True:
                     for event in pygame.event.get():
