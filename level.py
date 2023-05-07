@@ -12,7 +12,9 @@ class Level:
         self.won_level = False
         self.player_dead = False
 
-         #get the display surface
+        self.turn_number = 0
+
+        #get the display surface
         self.display_surface = pygame.display.get_surface()
         self.game_paused = False
 
@@ -74,7 +76,11 @@ class Level:
                                     self.destroy_attack, 
                                     self.create_magic)
 
+    def player_turn(self):
+        self.turn_number += 1
+
     def run(self):
+        self.player_turn()
         self.visible_sprites.custom_draw(self.player)
 
 # to help control the camera
